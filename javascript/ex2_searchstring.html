@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+  <center>
+	  	Text Input: <textarea rows="4" cols="50" id="data1"> Massage input Test Test Test Test Test test test </textarea>
+	  	<br>
+
+	    Sensitive Case:<input type="radio" name="ip" value="1" checked> Yes
+
+	    <input type="radio" name="ip" value="2"> No
+	    <br><br>
+
+	    Search: <input type="text" id="data2">
+	    <br><br>
+
+	    <button type="button" id="click" onclick="Search()">Search</button>
+	    <br><br>
+
+	    Result for Search: <span id="result"><span>
+   </center>
+
+ </body>
+</html>
+ <script>
+
+    function Search(){
+      var data1 = document.getElementById('data1').value;
+      var data2 = document.getElementById('data2').value;
+      var checkradio = document.querySelector('input[name="ip"]:checked').value;
+
+      if(checkradio==1){
+        if(data2==""||data1==""){
+          document.getElementById('result').innerHTML = "No input";
+        }
+        else{
+          var refresh = new RegExp(data2, 'g');
+          var count = data1.match(refresh);
+
+          if(count==null){
+            document.getElementById('result').innerHTML = "0";
+          }
+          else{
+            document.getElementById('result').innerHTML = data1.match(refresh).length;;
+          }
+
+        }
+      }
+
+
+      else if(checkradio==2){
+        
+        if(data2==""||data1==""){
+          document.getElementById('result').innerHTML = "No input";
+        }
+        else{
+          var refresh = new RegExp(data2, 'gi');
+          var count = data1.match(refresh);
+          if(count==null){
+            document.getElementById('result').innerHTML = "0";
+          }
+          else{
+            document.getElementById('result').innerHTML = data1.match(refresh).length;;
+          }
+
+        }
+      }
+
+    }
+</script>
