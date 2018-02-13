@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		var result;
+		$(document).ready(function(){
+			$("#button").click(function(){
+				var num1 = (Math.floor(Math.random() * 999) + 1);
+				var num2 = (Math.floor(Math.random() * 999) + 1);
+				$("#n1").html(num1);
+				$("#n2").html(num2);
+				result = num1+num2;
+				return result;
+			});
+			$("#pass").click(function(){
+				var get = $("#ans").val();
+				if(reply==get){
+					$("#reply").html("This is correct");
+					$("#reply").css("color","green");
+				}
+				else{
+					$("#reply").html("That's wrong.The answer is "+result);
+					$("#reply").css("color","red");
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<center>
+		<button id="button">Random Number</button><br><br>
+		<span id="n1">?</span>+<span id="n2">?</span>=
+		<input type="text" id="ans"><br><br>
+		<button id="pass">Send Answer</button><br><br>
+		Result : <span id="reply"></span>
+	</center>
+</body>
+</html>
